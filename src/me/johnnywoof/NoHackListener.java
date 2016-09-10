@@ -1,6 +1,7 @@
 package me.johnnywoof;
 
 import com.lenis0012.bukkit.npc.NPCDamageEvent;
+
 import me.johnnywoof.check.CheckType;
 import me.johnnywoof.checks.*;
 import me.johnnywoof.event.ViolationChangedEvent;
@@ -8,6 +9,7 @@ import me.johnnywoof.threads.KillAuraThread;
 import me.johnnywoof.util.MoveData;
 import me.johnnywoof.util.Utils;
 import me.johnnywoof.util.XYZ;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -15,6 +17,7 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.Sign;
 import org.bukkit.craftbukkit.v1_7_R4.entity.CraftPlayer;
+import org.bukkit.entity.Damageable;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -462,7 +465,7 @@ public class NoHackListener implements Listener {
 
                 LivingEntity e = ((LivingEntity) event.getEntity());
 
-                if ((e.getHealth() > 0)) {
+                if ((((Damageable)e).getHealth() > 0)) {
 
                     final Player p = ((Player) event.getDamager());
 
